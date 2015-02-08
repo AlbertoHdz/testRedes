@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="js/jquery.mobile-1.4.5.css" />
+        <title>Online??</title>
+		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script>
+function cargar(){
+	document.addEventListener("deviceready", onDeviceReady, false);
+	var d = new Date();
+	
+	function onDeviceReady() {
+		// Register the event listener
+		checkConnection();
+		alert("Listo");
+		//document.getElementById("ingreso").innerHTML += "<br> nueva linea";  // Agrego nueva linea antes
+	}
+	
+	
+}
+	function checkConnection(){
+		var networkState= navigator.network.connection.type;
+		
+		var states= {}; 
+		states[Connection.UNKNOWN] = "Unknown connection";
+		states[Connection.ETHERNET] = "Ethernet connection";
+		states[Connection.WIFI] = "WiFi connection";
+		states[Connection.CELL_2G] = "Cell 2G connection";
+		states[Connection.CELL_3G] = "Cell 3G connection";
+		states[Connection.CELL_4G] = "Cell 4G connection";
+		states[Connection.NONE] = "No network connection";
+		alert("creada variable");
+		alert("Connectiontype: " + states[networkState]);
+		
+		if(states[networkState]===states[Connection.NONE]){
+			alert("Error Connectiontype: " + states[networkState]);
+		}else{
+			alert("se intentara direccionar a la pagina");
+			
+		}
+		
+	}
+</script>
+    </head>
+    <body style="background:rgba(110,77,170,0.5)" onload=cargar();>
+        <div id="ingreso" class="ui-shadow" style="background:#FFF">
+			<input type="text" name="address" id="address"/><input type="button" value="conectar" class="" onclick="checkConnection()"><br>
+        </div>
+		<br>
+		<div>
+			
+		</div>
+		<br>
+        <div id="nueva" class="ui-shadow-isset">
+		</div>
+		
+    </body>
+</html>
