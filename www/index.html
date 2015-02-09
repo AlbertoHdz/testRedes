@@ -53,15 +53,13 @@ function cargar(){
 		states[Connection.CELL_3G] = "Cell 3G connection";
 		states[Connection.CELL_4G] = "Cell 4G connection";
 		states[Connection.NONE] = "No network connection";
-		alert("creada variable");
-		alert("Connectiontype: " + states[networkState]);
 		
 		if(states[networkState]===states[Connection.NONE]){
 			alert("Error Connectiontype: " + states[networkState]);
 		}else{
 			alert("se intentara direccionar a la pagina mediante: "+states[networkState]);
 			var direc=document.getElementById("address");
-			document.location(direc);
+			window.location.href=direc;
 		}
 		
 	}
